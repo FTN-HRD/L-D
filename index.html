@@ -1,100 +1,70 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دوره‌های آموزشی سازمان</title>
-    <style>
-        body {
-            font-family: 'Vazirmatn', Arial, sans-serif;
-            background-color: #1a1a1a;
-            color: #ffd700;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-        }
-        h1, h2, h3 {
-            color: #ffd700;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .year, .month {
-            margin-bottom: 20px;
-            border: 1px solid #ffd700;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .year-title, .month-title {
-            cursor: pointer;
-            user-select: none;
-        }
-        .year-content, .month-content {
-            display: none;
-            padding-right: 20px;
-        }
-        .year-content.active, .month-content.active {
-            display: block;
-        }
-        a {
-            color: #fff700;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>گواهینامه آموزشی</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    #certificate-container {
+      display: none;
+      margin-top: 20px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>دوره‌های آموزشی سازمان</h1>
-        
-        <div class="year">
-            <h2 class="year-title" onclick="toggleContent(this)">۱۴۰۳</h2>
-            <div class="year-content">
-                <div class="month">
-                    <h3 class="month-title" onclick="toggleContent(this)">۰۷ - مهر</h3>
-                    <div class="month-content">
-                        <ul>
-                            <li><a href="#">دوره آموزشی مدیریت زمان</a></li>
-                            <li><a href="#">کارگاه برنامه‌نویسی پایتون</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="month">
-                    <h3 class="month-title" onclick="toggleContent(this)">۰۶ - شهریور</h3>
-                    <div class="month-content">
-                        <ul>
-                            <li><a href="#">سمینار مهارت‌های ارتباطی</a></li>
-                            <li><a href="#">دوره آموزشی اکسل پیشرفته</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="year">
-            <h2 class="year-title" onclick="toggleContent(this)">۱۴۰۲</h2>
-            <div class="year-content">
-                <div class="month">
-                    <h3 class="month-title" onclick="toggleContent(this)">۱۲ - اسفند</h3>
-                    <div class="month-content">
-                        <ul>
-                            <li><a href="#">کارگاه مدیریت استرس</a></li>
-                            <li><a href="#">دوره آموزشی هوش مصنوعی</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <script>
-        function toggleContent(element) {
-            const content = element.nextElementSibling;
-            content.classList.toggle('active');
-        }
-    </script>
+  <h1>گواهینامه آموزشی پرسنل</h1>
+  <p>کد گواهینامه خود را وارد کنید:</p>
+  <input type="text" id="certificateCode" placeholder="کد گواهینامه">
+  <br>
+  <button onclick="showCertificate()">نمایش گواهینامه</button>
+
+  <div id="certificate-container">
+    <h2>گواهینامه شما:</h2>
+    <img id="certificateImage" src="" alt="گواهینامه">
+  </div>
+
+  <script>
+    function showCertificate() {
+      var code = document.getElementById('certificateCode').value;
+      var certificateImage = document.getElementById('certificateImage');
+      var container = document.getElementById('certificate-container');
+
+      // نمونه کد گواهینامه‌ها و آدرس تصاویر مربوطه
+      var certificates = {
+        '12345': 'certificates/certificate1.jpg',
+        '67890': 'certificates/certificate2.jpg',
+        // گواهینامه‌های دیگر را اضافه کنید
+      };
+
+      if (certificates[code]) {
+        certificateImage.src = certificates[code];
+        container.style.display = 'block';
+      } else {
+        alert('کد گواهینامه معتبر نیست');
+        container.style.display = 'none';
+      }
+    }
+  </script>
+
 </body>
 </html>
