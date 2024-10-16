@@ -5,11 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>گواهینامه آموزشی</title>
   <style>
+    @font-face {
+      font-family: 'IranSANS';
+      src: url('https://yourhost.com/path-to-font/IranSANS.woff2') format('woff2'),
+           url('https://yourhost.com/path-to-font/IranSANS.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       background-color: #f0f0f0;
       padding: 20px;
+    }
+    h1, h2, h3 {
+      font-family: 'IranSANS', sans-serif;
     }
     #certificate-container {
       display: none;
@@ -22,11 +33,13 @@
     input[type="text"] {
       padding: 10px;
       font-size: 16px;
+      font-family: 'IranSANS', sans-serif;
     }
     button {
       padding: 10px 20px;
       font-size: 16px;
       margin-top: 10px;
+      font-family: 'IranSANS', sans-serif;
     }
   </style>
 </head>
@@ -49,9 +62,9 @@
       var certificateImage = document.getElementById('certificateImage');
       var container = document.getElementById('certificate-container');
 
-      // نمونه کد گواهینامه‌ها و آدرس تصاویر مربوطه
+      // نمونه کد گواهینامه‌ها و آدرس تصاویر مربوطه از هاست خارجی
       var certificates = {
-        '98697': 'certificates/98697.jpg'
+        '98697': 'certificates/certificate1.jpg'
         // گواهینامه‌های دیگر را اضافه کنید
       };
 
